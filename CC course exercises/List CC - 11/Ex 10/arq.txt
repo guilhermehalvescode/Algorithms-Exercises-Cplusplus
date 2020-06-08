@@ -1,0 +1,9 @@
+divinipolis 150000
+araguari 45000
+uberlandia 789000
+saoPaulo 1500000
+beloHorizonte 35000
+uberaba 20000
+miami 6000000
+natal 45000
+pedrinopolis 30000
