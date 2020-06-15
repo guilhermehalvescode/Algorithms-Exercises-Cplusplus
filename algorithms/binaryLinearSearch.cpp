@@ -21,8 +21,8 @@ int linearSearch(vector <int> sorted, int e){
     int sortedLenght = sorted.size(), i;
     for(i = 0; i < sortedLenght; i++){
         if(e == sorted.at(i)) return i;
+        else if(sorted.at(i) > e) return sortedLenght;
     }
-    return i;
 }
 
 
