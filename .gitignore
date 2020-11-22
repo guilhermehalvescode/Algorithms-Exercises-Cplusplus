@@ -1,2 +1,8 @@
 Competitive-Programming-3rd-Edition.pdf
-
+# specific to CodeBlocks IDE
+*.layout
+*.depend
+*.cbp
+# generated directories
+bin/
+obj/
