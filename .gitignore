@@ -6,3 +6,6 @@ Competitive-Programming-3rd-Edition.pdf
 # generated directories
 bin/
 obj/
+
+.vscode
+a.out
