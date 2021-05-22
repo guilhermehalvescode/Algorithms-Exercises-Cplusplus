@@ -1,64 +1,61 @@
 #include <bits/stdc++.h>
-#define N 250
-#define inf 10101010
+#define N 10000
 using namespace std;
 
-typedef pair<int, int> ii;
+vector<int> graph[2][N];
+int n, weights[2][N - 1];
 
-int cidades, estradas, destino, inicial, distancias[N];
-int distanciaRota[N];
-vector <ii> graph[N];
-
-
-void dijkstra(int ini) {
-  for(int i = 0; i < cidades; i++) {
-    distancias[i] = inf;
-  }
-
-  priority_queue<ii, vector<ii>, greater<ii>> pq;
-  distancias[ini] = 0;
-  pq.push(ii(distancias[ini], ini));
-  while(!pq.empty()) {
-    ii top = pq.top(); pq.pop();
-    int distU = top.first;
-    int u = top.second;
-
-    if(u < destino - 1 || distancias[u] < distU) {
-      continue;
+bool check()
+{
+  for (int i = 0; i < 2; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      weights[i][j] = 0;
     }
+  }
+  for (int i = 0; i < 2; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      weights[i][(graph[i][j].size() - 1)]++;
+    }
+  }
+  for (int i = 0; i < n; i++)
+  {
+    cout << "1: " << weights[0][i] << " 2: " << weights[1][i] << endl;
 
-    for(ii edge : graph[u]) {
-      int v = edge.first, pesoAresta = edge.second;
-      if(distU + pesoAresta < distancias[v]) {
-        distancias[v] = distU + pesoAresta;
-        pq.push(ii(distU + pesoAresta, v));
+    if (weights[0][i] != weights[1][i])
+      return false;
+  }
+  return true;
+}
+
+int main()
+{
+  while (cin >> n)
+  {
+    int a, b;
+    for (int i = 0; i < n - 1; i++)
+    {
+      cin >> a >> b;
+
+      graph[0][a - 1].push_back(b - 1);
+      graph[0][b - 1].push_back(a - 1);
+    }
+    for (int i = 0; i < n - 1; i++)
+    {
+      cin >> a >> b;
+      graph[1][a - 1].push_back(b - 1);
+      graph[1][b - 1].push_back(a - 1);
+    }
+    cout << check() << endl;
+    for (int i = 0; i < 2; i++)
+    {
+      for (int j = 0; j < n; j++)
+      {
+        graph[i][j].clear();
       }
-    }
-  }
-}
-
-void dfs(int ini, int dest) {
-  for(ii edge : graph[ini]) {
-    if(edge.first == ini + 1) {
-      distanciaRota[ini] = distancias[ini - 1] + edge.second;
-      dfs(ini + 1, dest);
-    }
-  }
-}
-
-int main() {
-  while(true) {
-    cin >> cidades >> estradas >> destino >> inicial;
-    if(cidades == 0 && estradas == 0 && destino == 0 && inicial == 0) break; 
-    int u, v, peso;
-    for(int i = 0; i < estradas; i++) {
-      cin >> u >> v >> peso;
-      graph[u].push_back(ii(v, peso));
-      graph[v].push_back(ii(u, peso));
-    }
-    dijkstra(inicial);
-    for(int i = 0; i < cidades; i++) {
-      cout << "Distancia de " << inicial << " até " << i << ": " << distancias[i] << endl;
     }
   }
   return 0;
