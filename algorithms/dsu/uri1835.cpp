@@ -31,7 +31,6 @@ void join(int a, int b) {
 
 int main() {
   int tests; cin >> tests;
-
   for(int j = 0; j < tests; j++) {
     cin >> n >> m;
     init();
@@ -40,13 +39,11 @@ int main() {
       cin >> a >> b;
       join(a, b);
     }
-    cout << "Caso #" << j + 1 << ": ";
     if(ncomp == 1) {
-      cout << "a promessa foi cumprida";
+      cout << "Caso #" << j + 1 << ": a promessa foi cumprida" << endl;
     } else {
-      cout << "ainda falta(m) " << ncomp - 1 << " estradas(s)";
+      cout << "Caso #" << j + 1 << ": ainda falta(m) " << ncomp - 1 << " estrada(s)" << endl;
     }
-    cout << endl;
   }
 
   return 0;
