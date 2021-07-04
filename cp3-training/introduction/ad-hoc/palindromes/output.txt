@@ -1,0 +1,10 @@
+3AIAE -- is a mirrored string.
+
+3BIBE -- is not a palindrome.
+
+AEST23A -- is a mirrored string.
+
+AHIMOTUVWXY181YXWVUTOMIHA -- is a mirrored palindrome.
+
+AHIMOTUVWXY1EJLSZ2358ZES52JL31YXWVUTOMIHA -- is a mirrored string.
+
