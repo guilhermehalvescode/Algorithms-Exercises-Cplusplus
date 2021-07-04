@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int a, b, c;
+int a, b, c, player, newPos, num;
 int players[MAX], jumps[100], board[100];
 
 void init() {
@@ -15,20 +15,21 @@ void init() {
 }
 
 int main() {
-  int t, src, dest; cin >> t;
-  while(t--) {
+  int cases, src, dest; cin >> cases;
+  for(int t = 0; t < cases; t++) {
     init();
     cin >> a >> b >> c;
     while(b--) {
       cin >> src >> dest;
       jumps[src - 1] = dest - 1;
     }
-    int player = 0, num, newPos;
+    player = 0;
+    board[0] = 0;
     while(c--) {
       cin >> num; 
       if(board[99] == -1) {
-        newPos = players[player] + num < 100 ? players[player] + num : players[player];
-        while(jumps[newPos] != -1) {
+        newPos = players[player] + num < 100 ? players[player] + num : 99;
+        if(jumps[newPos] != -1) {
           newPos = jumps[newPos];
         }
         board[newPos] = player;
