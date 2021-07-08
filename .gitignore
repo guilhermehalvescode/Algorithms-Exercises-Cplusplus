@@ -9,3 +9,7 @@ obj/
 
 .vscode
 a.out
+
+out/
+.idea
+*.iml
