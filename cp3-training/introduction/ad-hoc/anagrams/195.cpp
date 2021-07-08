@@ -3,12 +3,13 @@
 using namespace std;
 
 bool mycomp(string a, string b) {
-  // for(int i = 0; i < a.size(); i++) 
-  //   a[i] = tolower(a[i]);
-  
-  // for(int i = 0; i < b.size(); i++) 
-  //   a[i] = tolower(b[i]);
-  
+  int aSize = a.size(), bSize = b.size(), i;
+  if(aSize > bSize) swap(aSize, bSize);
+
+  for(i = 0; a[i] == b[i] && i < aSize; i++);
+
+  if(a[i] != b[i]) 
+
   return a < b;
 }
 
@@ -24,8 +25,8 @@ int main() {
       next_permutation(nPerm.begin(), nPerm.end());
     } while(nPerm != perm);
     sort(perms.begin(), perms.end(), mycomp);
-    for(string c : perms) {
-      cout << c << endl;
+    for(int i = perms.size() - 1; i >= 0; i--) {
+      cout << perms[i] << endl;
     }
     perms.clear();
   }
