@@ -8,20 +8,26 @@ bool ehVogal(char c) {
 }
 
 bool evaluateString(string str) {
+    int i, j;
 
-    int i = 0, j = str.length() - 1;
 
-    do  {
-        while(!ehVogal(str[i]) || !ehVogal(str[j])) {
-            i++;
-            j--;
 
-        }
+  for(i = 0, j = str.length() - 1; i < j;) {
+    if(!ehVogal(str[j])) {
+      j--;
+      continue;
+    }
 
-        i++;
-        j--;
-    } while(i < j && str[i] == str[j]);
+    if(!ehVogal(str[i])) {
+      i++;
+      continue;
+    }
     
+    if(str[i] == str[j]) {
+      i++; j--;
+    } else break;
+  }
+
     return j <= i;
 
 }
