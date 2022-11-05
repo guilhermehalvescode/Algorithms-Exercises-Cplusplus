@@ -13,7 +13,7 @@ int mmc(int numero1, int numero2)
     if ((aux % numero2) == 0)
     {
       mmc = aux;
-      break; // ??????
+      break;
     }
   }
 
