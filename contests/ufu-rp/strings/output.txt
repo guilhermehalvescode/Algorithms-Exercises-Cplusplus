@@ -1,0 +1,6 @@
+sim
+sim
+nao
+sim
+nao
+sim
