@@ -61,7 +61,7 @@ int main()
     cin >> n >> m;
 
     if(n == 0 && m == 0)
-      return;
+      return 0;
 
     init();
     int rafaelGanhos = 0;
@@ -81,12 +81,14 @@ int main()
         join(a, b);
       else
       {
-        int guildaRafael = find(1);
-        int pontosGuildaA = pontos[find(a)];
-        int pontosGuildaB = pontos[find(b)];
-        if(pontosGuildaA > pontosGuildaB && guildaRafael == a)
+        int guildaRafael = find(1), guildaA = find(a), guildaB = find(b);
+       
+        int pontosGuildaA = pontos[guildaA];
+        int pontosGuildaB = pontos[guildaB];
+
+        if(pontosGuildaA > pontosGuildaB && guildaRafael == guildaA)
           rafaelGanhos++;
-        if(pontosGuildaB > pontosGuildaA && guildaRafael == b)
+        if(pontosGuildaB > pontosGuildaA && guildaRafael == guildaB)
           rafaelGanhos++;
       }
     }
